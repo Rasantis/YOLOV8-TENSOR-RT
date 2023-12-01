@@ -1,3 +1,4 @@
+#funcionando em tempo real, com 0 delay, detectando mais pessoas corretamente,funcionando nota 1000
 from models import TRTModule
 import cv2
 import torch
@@ -6,6 +7,7 @@ from models.torch_utils import det_postprocess
 from models.utils import blob, letterbox
 
 def main() -> None:
+    
     # Configurações do modelo e do vídeo
     engine_path = 'modelos/yolov8s.engine'  # Caminho para o arquivo de engine
     video_path = 'data/pessoas1.mp4'  # Caminho para o vídeo
@@ -25,7 +27,7 @@ def main() -> None:
         return
 
     # Aumentar a área de monitoramento (xmin, ymin, xmax, ymax)
-    monitor_area = (100, 100, 600, 600)  # Ajuste conforme necessário
+    monitor_area = (0, 0, 1920, 1080)
     monitor_area_color = (0, 255, 0)  # Cor verde para a área de monitoramento
 
     # Definir o tamanho da janela exibida
